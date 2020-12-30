@@ -1,0 +1,37 @@
+@url = http://localhost:3000
+@json = Content-Type: application/json
+
+####################### users #####################
+### 查
+
+GET {{url}}/users
+
+#__________________________
+### 增
+POST {{url}}/users
+{{json}}
+
+{
+    "username":"user333",
+    "password":"123456"
+}
+
+#__________________________
+### 单查
+
+GET {{url}}/users/5fec11b6332fc1088c29de21
+
+#__________________________
+### 改
+
+# PUT {{url}}/users/5fec11b6332fc1088c29de21
+# {{json}}
+# {
+#     "username":"user233",
+#     "password":"12345611"
+# }
+
+#__________________________
+### 删
+
+DELETE {{url}}/users/5fec0bac332fc1088c29de20
