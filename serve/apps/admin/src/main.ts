@@ -5,6 +5,8 @@ import { AdminModule } from './admin.module';
 async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
 
+  app.enableCors();
+
   const options = new DocumentBuilder()
     .setTitle('全栈 api')
     .setDescription('The cats API description')
@@ -13,7 +15,6 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
-
 
   await app.listen(3000);
   console.log(`http://localhost:3000/api-docs`);
