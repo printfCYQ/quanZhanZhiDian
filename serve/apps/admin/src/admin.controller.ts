@@ -24,7 +24,7 @@ export class AdminController {
 
     // 本地存储
     return {
-      url: `http://localhost:3000/uploads/${file.filename}`,
+      url: `http://localhost:${process.env.ADMIN_PORT}/uploads/${file.filename}`,
     };
   }
 }
