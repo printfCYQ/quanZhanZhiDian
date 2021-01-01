@@ -7,9 +7,11 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
-Vue.prototype.$http = axios.create({
-  baseURL: "http://localhost:3000",
+const http = axios.create({
+  baseURL: process.env.VUE_APP_API_URL
 });
+Vue.prototype.$httpajax = http; //avue上传方法需要
+Vue.prototype.$http = http;
 
 import EleForm from "vue-ele-form";
 Vue.use(EleForm);

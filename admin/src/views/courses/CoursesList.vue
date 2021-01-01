@@ -31,7 +31,7 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({})
-export default class Home extends Vue {
+export default class CoursesList extends Vue {
   data = {};
   fields = {
     _id: { label: "ID" },

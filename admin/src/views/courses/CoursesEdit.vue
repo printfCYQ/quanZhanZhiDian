@@ -13,7 +13,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component({})
-export default class Home extends Vue {
+export default class CoursesEdit extends Vue {
   @Prop(String) id!: string;
   data = {};
   fields = {
