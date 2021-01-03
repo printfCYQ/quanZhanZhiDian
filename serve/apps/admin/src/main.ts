@@ -14,7 +14,7 @@ async function bootstrap() {
   });
 
   const options = new DocumentBuilder()
-    .setTitle('全栈 api')
+    .setTitle('全栈-后台管理api')
     .setDescription('The cats API description')
     .setVersion('1.0')
     .addTag('cats')

@@ -20,9 +20,7 @@
           <v-list-item v-for="item in items2" :key="item.text" link>
             <v-list-item-avatar>
               <img
-                :src="
-                  `https://randomuser.me/api/portraits/men/${item.picture}.jpg`
-                "
+                :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`"
                 alt
               />
             </v-list-item-avatar>
@@ -31,7 +29,7 @@
         </v-list>
 
         <!-- <v-list-item v-if="$store.state.auth.user" class="mt-4"> -->
-        <v-list-item  class="mt-4">
+        <v-list-item class="mt-4">
           <v-list-item-action>
             <v-icon color="grey darken-1">mdi-lock</v-icon>
           </v-list-item-action>
@@ -41,7 +39,7 @@
           >
         </v-list-item>
         <!-- <v-list-item v-else @click="isShowLoginForm = true" class="mt-4"> -->
-        <v-list-item  @click="isShowLoginForm = true" class="mt-4">
+        <v-list-item @click="isShowLoginForm = true" class="mt-4">
           <v-list-item-action>
             <v-icon color="grey darken-1">mdi-lock</v-icon>
           </v-list-item-action>
@@ -67,7 +65,7 @@
         <span class="subtitle-1 font-weight-bold">全栈之巅</span>
       </v-toolbar-title>
       <v-spacer />
-      <v-row align="center" style="max-width: 30vw;">
+      <v-row align="center" style="max-width: 30vw">
         <v-text-field
           placeholder="搜索..."
           single-line
@@ -88,7 +86,7 @@
     </v-main>
 
     <v-bottom-sheet v-model="isShowLoginForm" inset>
-      <v-form @submit.prevent="login" class="pa-4">
+      <v-form @submit.prevent="login" class="pa-4" style="background: #000">
         <v-text-field
           v-model="loginModel.username"
           label="用户名"

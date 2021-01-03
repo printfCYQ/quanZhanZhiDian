@@ -46,7 +46,22 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // 'nuxt-material-design-icons',
+    '@nuxtjs/auth',
   ],
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth/login' },
+          logout: { url: '/auth/logout' },
+          user: { url: '/auth/user', propertyName: false },
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      },
+    },
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},

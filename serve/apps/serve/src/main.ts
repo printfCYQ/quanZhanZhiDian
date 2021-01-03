@@ -8,9 +8,10 @@ async function bootstrap() {
   app.enableCors();
 
   const options = new DocumentBuilder()
-    .setTitle('全栈 api')
+    .setTitle('全栈-前端api')
     .setDescription('The cats API description')
     .setVersion('1.0')
+    .addBearerAuth()
     .addTag('cats')
     .build();
   const document = SwaggerModule.createDocument(app, options);
