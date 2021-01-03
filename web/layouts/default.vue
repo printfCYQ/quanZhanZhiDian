@@ -27,19 +27,28 @@
             <v-list-item-title v-text="item.text" />
           </v-list-item>
         </v-list>
-
-        <!-- <v-list-item v-if="$store.state.auth.user" class="mt-4"> -->
-        <v-list-item class="mt-4">
-          <v-list-item-action>
-            <v-icon color="grey darken-1">mdi-lock</v-icon>
-          </v-list-item-action>
-          <v-list-item-title class="grey--text text--darken-1">
-            <!-- 欢迎您：{{ $store.state.auth.user.username }}</v-list-item-title -->
-            欢迎您</v-list-item-title
-          >
-        </v-list-item>
-        <!-- <v-list-item v-else @click="isShowLoginForm = true" class="mt-4"> -->
-        <v-list-item @click="isShowLoginForm = true" class="mt-4">
+        <div v-if="$store.state.auth.user">
+          <v-list-item class="mt-4">
+            <!-- <v-list-item class="mt-4"> -->
+            <v-list-item-action>
+              <v-icon color="grey darken-1">mdi-lock</v-icon>
+            </v-list-item-action>
+            <v-list-item-title class="grey--text text--darken-1">
+              欢迎您：{{ $store.state.auth.user.username }}</v-list-item-title
+            >
+          </v-list-item>
+          <v-list-item @click="outLogin" class="mt-4">
+            <!-- <v-list-item @click="isShowLoginForm = true" class="mt-4"> -->
+            <v-list-item-action>
+              <v-icon color="grey darken-1">event</v-icon>
+            </v-list-item-action>
+            <v-list-item-title class="grey--text text--darken-1"
+              >退出登录</v-list-item-title
+            >
+          </v-list-item>
+        </div>
+        <v-list-item v-else @click="isShowLoginForm = true" class="mt-4">
+          <!-- <v-list-item @click="isShowLoginForm = true" class="mt-4"> -->
           <v-list-item-action>
             <v-icon color="grey darken-1">mdi-lock</v-icon>
           </v-list-item-action>
@@ -52,7 +61,7 @@
             <v-icon color="grey darken-1">mdi-settings</v-icon>
           </v-list-item-action>
           <v-list-item-title class="grey--text text--darken-1"
-            >Manage Subscriptions</v-list-item-title
+            >全栈之巅©CYQ</v-list-item-title
           >
         </v-list-item>
       </v-list>
@@ -108,7 +117,7 @@
 <script>
 export default {
   props: {
-    source: { type: String, default: '' }
+    source: { type: String, default: '' },
   },
   data: () => ({
     isShowLoginForm: false,
@@ -117,15 +126,15 @@ export default {
     items: [
       { icon: 'home', text: '首页', link: '/' },
       { icon: 'trending_up', text: '热门课程', link: '/courses' },
-      { icon: 'subscriptions', text: '热门评论', link: '/comments' }
+      { icon: 'subscriptions', text: '热门评论', link: '/comments' },
     ],
     items2: [
       { picture: 28, text: 'Joseph' },
       { picture: 38, text: 'Apple' },
       { picture: 48, text: 'Xbox Ahoy' },
       { picture: 58, text: 'Nokia' },
-      { picture: 78, text: 'MKBHD' }
-    ]
+      { picture: 78, text: 'MKBHD' },
+    ],
   }),
   created() {
     this.$vuetify.theme.dark = true
@@ -133,10 +142,11 @@ export default {
   methods: {
     async login() {
       await this.$auth.loginWith('local', {
-        data: this.loginModel
+        data: this.loginModel,
       })
       this.isShowLoginForm = false
-    }
-  }
+    },
+    outLogin() {},
+  },
 }
 </script>
